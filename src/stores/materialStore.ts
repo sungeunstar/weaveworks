@@ -39,7 +39,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   fetchYarns: async () => {
     set({ isLoading: true, error: null });
     try {
-      const yarns = await yarnsApi.getAll();
+      const yarns = await yarnsApi.getAll() as Yarn[];
       set({ yarns, isLoading: false });
     } catch (error) {
       set({ error: 'Failed to fetch yarns', isLoading: false });
@@ -49,7 +49,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   addYarn: async (yarn) => {
     set({ isLoading: true, error: null });
     try {
-      const newYarn = await yarnsApi.create(yarn);
+      const newYarn = await yarnsApi.create(yarn) as Yarn;
       set((state) => ({ yarns: [...state.yarns, newYarn], isLoading: false }));
     } catch (error) {
       set({ error: 'Failed to add yarn', isLoading: false });
@@ -60,7 +60,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   updateYarn: async (id, yarn) => {
     set({ isLoading: true, error: null });
     try {
-      const updatedYarn = await yarnsApi.update(id, yarn);
+      const updatedYarn = await yarnsApi.update(id, yarn) as Yarn;
       set((state) => ({
         yarns: state.yarns.map((y) => (y.id === id ? updatedYarn : y)),
         isLoading: false,
@@ -89,7 +89,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   fetchGreyFabrics: async () => {
     set({ isLoading: true, error: null });
     try {
-      const greyFabrics = await greyFabricsApi.getAll();
+      const greyFabrics = await greyFabricsApi.getAll() as GreyFabric[];
       set({ greyFabrics, isLoading: false });
     } catch (error) {
       set({ error: 'Failed to fetch grey fabrics', isLoading: false });
@@ -99,7 +99,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   addGreyFabric: async (greyFabric) => {
     set({ isLoading: true, error: null });
     try {
-      const newGreyFabric = await greyFabricsApi.create(greyFabric);
+      const newGreyFabric = await greyFabricsApi.create(greyFabric) as GreyFabric;
       set((state) => ({
         greyFabrics: [...state.greyFabrics, newGreyFabric],
         isLoading: false,
@@ -113,7 +113,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   updateGreyFabric: async (id, greyFabric) => {
     set({ isLoading: true, error: null });
     try {
-      const updatedGreyFabric = await greyFabricsApi.update(id, greyFabric);
+      const updatedGreyFabric = await greyFabricsApi.update(id, greyFabric) as GreyFabric;
       set((state) => ({
         greyFabrics: state.greyFabrics.map((gf) => (gf.id === id ? updatedGreyFabric : gf)),
         isLoading: false,
@@ -142,7 +142,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   fetchFabrics: async () => {
     set({ isLoading: true, error: null });
     try {
-      const fabrics = await fabricsApi.getAll();
+      const fabrics = await fabricsApi.getAll() as Fabric[];
       set({ fabrics, isLoading: false });
     } catch (error) {
       set({ error: 'Failed to fetch fabrics', isLoading: false });
@@ -152,7 +152,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   addFabric: async (fabric) => {
     set({ isLoading: true, error: null });
     try {
-      const newFabric = await fabricsApi.create(fabric);
+      const newFabric = await fabricsApi.create(fabric) as Fabric;
       set((state) => ({ fabrics: [...state.fabrics, newFabric], isLoading: false }));
     } catch (error) {
       set({ error: 'Failed to add fabric', isLoading: false });
@@ -163,7 +163,7 @@ export const useMaterialStore = create<MaterialStore>((set) => ({
   updateFabric: async (id, fabric) => {
     set({ isLoading: true, error: null });
     try {
-      const updatedFabric = await fabricsApi.update(id, fabric);
+      const updatedFabric = await fabricsApi.update(id, fabric) as Fabric;
       set((state) => ({
         fabrics: state.fabrics.map((f) => (f.id === id ? updatedFabric : f)),
         isLoading: false,

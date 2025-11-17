@@ -1,17 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Button, Input, Select } from '@/components/common';
 import { IoArrowBack } from 'react-icons/io5';
 
 export default function ReturnPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const orderId = searchParams.get('orderId');
 
   const [formData, setFormData] = useState({
-    orderId: orderId || '',
+    orderId: '',
     orderNumber: 'ORD-2024-0001',
     customerName: '한양섬유',
     fabricName: '폴리에스터 원단 - 블랙',

@@ -23,7 +23,7 @@ export const useInventoryStore = create<InventoryStore>((set) => ({
   fetchTransactions: async (params) => {
     set({ isLoading: true, error: null });
     try {
-      const transactions = await inventoryApi.getTransactions(params);
+      const transactions = await inventoryApi.getTransactions(params) as InventoryTransaction[];
       set({ transactions, isLoading: false });
     } catch (error) {
       set({ error: 'Failed to fetch transactions', isLoading: false });
@@ -33,7 +33,7 @@ export const useInventoryStore = create<InventoryStore>((set) => ({
   fetchStocks: async (params) => {
     set({ isLoading: true, error: null });
     try {
-      const stocks = await inventoryApi.getStocks(params);
+      const stocks = await inventoryApi.getStocks(params) as InventoryStock[];
       set({ stocks, isLoading: false });
     } catch (error) {
       set({ error: 'Failed to fetch stocks', isLoading: false });
@@ -43,7 +43,7 @@ export const useInventoryStore = create<InventoryStore>((set) => ({
   createTransaction: async (transaction) => {
     set({ isLoading: true, error: null });
     try {
-      const newTransaction = await inventoryApi.createTransaction(transaction);
+      const newTransaction = await inventoryApi.createTransaction(transaction) as InventoryTransaction;
       set((state) => ({
         transactions: [...state.transactions, newTransaction],
         isLoading: false,

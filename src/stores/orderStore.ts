@@ -26,7 +26,7 @@ export const useOrderStore = create<OrderStore>((set) => ({
   fetchOrders: async (params) => {
     set({ isLoading: true, error: null });
     try {
-      const orders = await ordersApi.getAll(params);
+      const orders = await ordersApi.getAll(params) as Order[];
       set({ orders, isLoading: false });
     } catch (error) {
       set({ error: 'Failed to fetch orders', isLoading: false });
@@ -36,7 +36,7 @@ export const useOrderStore = create<OrderStore>((set) => ({
   fetchOrderById: async (id) => {
     set({ isLoading: true, error: null });
     try {
-      const order = await ordersApi.getById(id);
+      const order = await ordersApi.getById(id) as Order;
       set({ currentOrder: order, isLoading: false });
     } catch (error) {
       set({ error: 'Failed to fetch order', isLoading: false });
@@ -46,7 +46,7 @@ export const useOrderStore = create<OrderStore>((set) => ({
   createOrder: async (order) => {
     set({ isLoading: true, error: null });
     try {
-      const newOrder = await ordersApi.create(order);
+      const newOrder = await ordersApi.create(order) as Order;
       set((state) => ({
         orders: [...state.orders, newOrder],
         isLoading: false,
@@ -60,7 +60,7 @@ export const useOrderStore = create<OrderStore>((set) => ({
   updateOrder: async (id, order) => {
     set({ isLoading: true, error: null });
     try {
-      const updatedOrder = await ordersApi.update(id, order);
+      const updatedOrder = await ordersApi.update(id, order) as Order;
       set((state) => ({
         orders: state.orders.map((o) => (o.id === id ? updatedOrder : o)),
         currentOrder: state.currentOrder?.id === id ? updatedOrder : state.currentOrder,
