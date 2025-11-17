@@ -1,0 +1,257 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "email": "admin@weaveworks.com",
+      "password": "admin",
+      "role": "master",
+      "name": "관리자",
+      "phone": "010-1234-5678",
+      "isActive": true,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "2",
+      "username": "manager",
+      "email": "manager@weaveworks.com",
+      "password": "manager123",
+      "role": "official",
+      "name": "김담당",
+      "phone": "010-2345-6789",
+      "isActive": true,
+      "createdAt": "2024-02-01T00:00:00Z",
+      "updatedAt": "2024-02-01T00:00:00Z"
+    }
+  ],
+  "companies": [
+    {
+      "id": "1",
+      "name": "한양섬유",
+      "type": "판매처",
+      "businessNumber": "123-45-67890",
+      "representative": "홍길동",
+      "phone": "02-1234-5678",
+      "email": "contact@hanyang.com",
+      "address": "서울시 강남구 테헤란로 123",
+      "deliveryAddress": "서울시 강남구 배송센터",
+      "isActive": true,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "동원섬유",
+      "type": "판매처",
+      "businessNumber": "234-56-78901",
+      "representative": "김영희",
+      "phone": "031-2345-6789",
+      "email": "sales@dongwon.com",
+      "address": "경기도 성남시 분당구 판교역로 100",
+      "isActive": true,
+      "createdAt": "2024-01-15T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    },
+    {
+      "id": "3",
+      "name": "동원원사",
+      "type": "원사",
+      "phone": "031-3456-7890",
+      "email": "yarn@dongwon.com",
+      "address": "경기도 안산시 단원구",
+      "isActive": true,
+      "createdAt": "2024-01-20T00:00:00Z",
+      "updatedAt": "2024-01-20T00:00:00Z"
+    }
+  ],
+  "yarns": [
+    {
+      "id": "1",
+      "name": "폴리에스터 원사",
+      "color": "블랙",
+      "code": "PE-BLK-001",
+      "unit": "KG",
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "면 원사",
+      "color": "화이트",
+      "code": "CT-WHT-001",
+      "unit": "KG",
+      "createdAt": "2024-01-10T00:00:00Z",
+      "updatedAt": "2024-01-10T00:00:00Z"
+    }
+  ],
+  "greyFabrics": [
+    {
+      "id": "1",
+      "name": "폴리 면 혼방 생지",
+      "yarnIds": ["1", "2"],
+      "code": "PC-MIX-001",
+      "unit": "절",
+      "createdAt": "2024-01-05T00:00:00Z",
+      "updatedAt": "2024-01-05T00:00:00Z"
+    }
+  ],
+  "fabrics": [
+    {
+      "id": "1",
+      "name": "폴리에스터 원단",
+      "color": "블랙",
+      "styleCode": "PE-BLK-001",
+      "unit": "YD",
+      "price": 15000,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "면 원단",
+      "color": "화이트",
+      "styleCode": "CT-WHT-001",
+      "unit": "YD",
+      "price": 18000,
+      "createdAt": "2024-01-10T00:00:00Z",
+      "updatedAt": "2024-01-10T00:00:00Z"
+    },
+    {
+      "id": "3",
+      "name": "나일론 원단",
+      "color": "네이비",
+      "styleCode": "NY-NVY-001",
+      "unit": "YD",
+      "price": 20000,
+      "createdAt": "2024-01-15T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "orderNumber": "ORD-2024-0001",
+      "customerId": "1",
+      "customerName": "한양섬유",
+      "items": [
+        {
+          "id": "1",
+          "fabricId": "1",
+          "fabricName": "폴리에스터 원단",
+          "fabricColor": "블랙",
+          "styleCode": "PE-BLK-001",
+          "quantity": 500,
+          "unit": "YD",
+          "unitPrice": 15000,
+          "totalPrice": 7500000
+        }
+      ],
+      "subtotal": 7500000,
+      "vat": 750000,
+      "total": 8250000,
+      "status": "주문접수",
+      "orderDate": "2024-11-15",
+      "deliveryDate": "2024-11-20",
+      "createdBy": "admin",
+      "createdAt": "2024-11-15T09:00:00Z",
+      "updatedAt": "2024-11-15T09:00:00Z"
+    },
+    {
+      "id": "2",
+      "orderNumber": "ORD-2024-0002",
+      "customerId": "2",
+      "customerName": "동원섬유",
+      "items": [
+        {
+          "id": "2",
+          "fabricId": "2",
+          "fabricName": "면 원단",
+          "fabricColor": "화이트",
+          "styleCode": "CT-WHT-001",
+          "quantity": 300,
+          "unit": "YD",
+          "unitPrice": 18000,
+          "totalPrice": 5400000
+        }
+      ],
+      "subtotal": 5400000,
+      "vat": 540000,
+      "total": 5940000,
+      "status": "생산중",
+      "orderDate": "2024-11-16",
+      "deliveryDate": "2024-11-22",
+      "createdBy": "admin",
+      "createdAt": "2024-11-16T10:00:00Z",
+      "updatedAt": "2024-11-16T10:00:00Z"
+    }
+  ],
+  "shipping": [],
+  "inventoryTransactions": [
+    {
+      "id": "1",
+      "type": "원사",
+      "transactionType": "입고",
+      "itemId": "1",
+      "itemName": "폴리에스터 원사",
+      "quantity": 1500,
+      "weight": 1500,
+      "unit": "KG",
+      "unitPrice": 10000,
+      "supplierId": "3",
+      "supplierName": "동원원사",
+      "warehouseId": "1",
+      "warehouseName": "본사 창고",
+      "transactionDate": "2024-11-01",
+      "createdBy": "admin",
+      "createdAt": "2024-11-01T10:00:00Z"
+    }
+  ],
+  "inventoryStocks": [
+    {
+      "id": "1",
+      "type": "원사",
+      "itemId": "1",
+      "itemName": "폴리에스터 원사",
+      "itemColor": "블랙",
+      "warehouseId": "1",
+      "warehouseName": "본사 창고",
+      "quantity": 1500,
+      "weight": 1500,
+      "unit": "KG",
+      "lastUpdated": "2024-11-01T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "type": "염색",
+      "itemId": "3",
+      "itemName": "나일론 원단",
+      "itemColor": "네이비",
+      "warehouseId": "1",
+      "warehouseName": "본사 창고",
+      "quantity": 2500,
+      "yardage": 2500,
+      "unit": "YD",
+      "lastUpdated": "2024-11-10T10:00:00Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "1",
+      "orderId": "1",
+      "orderNumber": "ORD-2024-0001",
+      "customerId": "1",
+      "customerName": "한양섬유",
+      "totalAmount": 8250000,
+      "paidAmount": 8250000,
+      "remainingAmount": 0,
+      "status": "완납",
+      "paymentDate": "2024-11-16",
+      "paymentMethod": "이체",
+      "createdBy": "admin",
+      "createdAt": "2024-11-16T14:00:00Z",
+      "updatedAt": "2024-11-16T14:00:00Z"
+    }
+  ],
+  "settlement": []
+}
