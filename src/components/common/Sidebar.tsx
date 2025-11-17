@@ -56,6 +56,7 @@ const menuItems: MenuItem[] = [
     children: [
       { label: '주문 등록', path: '/orders/new', icon: null },
       { label: '주문 조회', path: '/orders', icon: null },
+      { label: '반품 등록', path: '/orders/return', icon: null },
     ],
   },
   {
