@@ -74,13 +74,23 @@ export interface Yarn {
   updatedAt: string;
 }
 
+// 원사 조합 비율
+export interface YarnComposition {
+  yarnId: string;
+  yarnName?: string;
+  ratio: number; // 비율 (%)
+}
+
 // 생지
 export interface GreyFabric {
   id: string;
   name: string;
-  yarnIds: string[]; // 원사 조합
+  yarnIds: string[]; // 원사 조합 (레거시 호환성)
+  yarnCompositions?: YarnComposition[]; // 원사 조합 비율
   code?: string;
   unit: UnitType;
+  lossPercentage?: number; // 로스율 (%)
+  weightPerYard?: number; // YD당 중량 (KG/YD) - 단위 변환용
   memo?: string;
   createdAt: string;
   updatedAt: string;
@@ -95,6 +105,8 @@ export interface Fabric {
   greyFabricId?: string;
   unit: UnitType;
   price?: number;
+  lossPercentage?: number; // 로스율 (%)
+  weightPerYard?: number; // YD당 중량 (KG/YD) - 단위 변환용
   memo?: string;
   createdAt: string;
   updatedAt: string;

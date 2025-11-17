@@ -20,7 +20,7 @@ export const useCompanyStore = create<CompanyStore>((set, get) => ({
   fetchCompanies: async () => {
     set({ isLoading: true, error: null });
     try {
-      const companies = await companiesApi.getAll();
+      const companies = await companiesApi.getAll() as Company[];
       set({ companies, isLoading: false });
     } catch (error) {
       set({ error: 'Failed to fetch companies', isLoading: false });
@@ -30,7 +30,7 @@ export const useCompanyStore = create<CompanyStore>((set, get) => ({
   addCompany: async (company) => {
     set({ isLoading: true, error: null });
     try {
-      const newCompany = await companiesApi.create(company);
+      const newCompany = await companiesApi.create(company) as Company;
       set((state) => ({
         companies: [...state.companies, newCompany],
         isLoading: false,
@@ -44,7 +44,7 @@ export const useCompanyStore = create<CompanyStore>((set, get) => ({
   updateCompany: async (id, company) => {
     set({ isLoading: true, error: null });
     try {
-      const updatedCompany = await companiesApi.update(id, company);
+      const updatedCompany = await companiesApi.update(id, company) as Company;
       set((state) => ({
         companies: state.companies.map((c) => (c.id === id ? updatedCompany : c)),
         isLoading: false,
